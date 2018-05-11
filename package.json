@@ -1,0 +1,32 @@
+{
+  "name": "react-native-timeline",
+  "version": "1.0.0",
+  "description": "React Native timeline component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Test has not been coded. You can contribute for it :)\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:peacecwz/react-native-timeline.git"
+  },
+  "keywords": [
+    "react-native",
+    "react native timeline",
+    "timeline",
+    "schedule",
+    "react native component",
+    "timeline with background",
+    "component"
+  ],
+  "peerDependencies": {
+    "react-native": ">= 0.4"
+  },
+  "author": "Baris Ceviz (https://github.com/peacecwz)",
+  "license": "MIT",
+  "bugs": {
+    "url":
+      "https://github.com/peacecwz/react-native-timeline/issues"
+  },
+  "homepage": "https://github.com/peacecwz/react-native-timeline"
+}

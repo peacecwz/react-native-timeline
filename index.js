@@ -108,6 +108,15 @@ export default class Timeline extends Component {
           </View>
         );
         break;
+      case "single-column-center":
+        content = (
+          <View style={[styles.rowContainer, this.props.rowContainerStyle]}>
+            {this.renderEvent(item, itemIndex)}
+            {this.renderTime(item, itemIndex)}
+            {this.renderCircle(item, itemIndex)}
+          </View>
+        );
+        break;
       case "two-column":
         content =
           itemIndex % 2 == 0 ? (
@@ -142,6 +151,11 @@ export default class Timeline extends Component {
       case "single-column-right":
         timeWrapper = {
           alignItems: "flex-start"
+        };
+        break;
+      case "single-column-center":
+        timeWrapper = {
+          alignItems: "center"
         };
         break;
       case "two-column":
@@ -193,6 +207,11 @@ export default class Timeline extends Component {
           paddingRight: 20
         };
         break;
+      case "single-column-center":
+        opStyle = {
+          borderColor: lineColor,
+        };
+        break;
       case "two-column":
         opStyle =
           itemIndex % 2 == 0
@@ -230,8 +249,10 @@ export default class Timeline extends Component {
             this.props.onEventPress ? this.props.onEventPress(item) : null
           }
         >
-          <View style={styles.detail}>
-            {this.renderDetail(item, itemIndex)}
+          <View style={{ height: 125, width: 125, backgroundColor: 'rgb(236,220,200)', alignItems: 'center', justifyContent: 'center', borderRadius: 5000 }}>
+            <View style={styles.detail}>
+              {this.renderDetail(item, itemIndex)}
+            </View>
           </View>
           {this._renderSeparator()}
         </TouchableOpacity>
@@ -250,6 +271,7 @@ export default class Timeline extends Component {
         </Text>
       </View>
     ) : (
+
         <Text style={[styles.title, this.props.titleStyle]}>{item.title}</Text>
       );
     return <View style={styles.container}>{title}</View>;
@@ -347,7 +369,7 @@ Timeline.defaultProps = {
   lineWidth: defaultLineWidth,
   lineColor: defaultLineColor,
   innerCircle: defaultInnerCircle,
-  columnFormat: "single-column-left",
+  columnFormat: "single-column-center",
   separator: false,
   showTime: true
 };
@@ -399,15 +421,18 @@ const styles = StyleSheet.create({
     backgroundColor: defaultDotColor
   },
   title: {
-    fontSize: 16,
-    fontWeight: "bold"
+    fontSize: 34,
+    alignSelf: 'center',
+    marginTop: 16,
+    color: 'rgb(231,124,95)',
+    fontWeight: '600',
   },
   details: {
     borderLeftWidth: defaultLineWidth,
     flexDirection: "column",
     flex: 1
   },
-  detail: { paddingTop: 10, paddingBottom: 10 },
+  detail: { paddingTop: 10, paddingBottom: 10, backgroundColor: 'white', width: 100, height: 100, borderRadius:2000 },
   description: {
     marginTop: 10
   },
